@@ -1,0 +1,33 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+InsuranceWebsite
+    Open Browser    http://demo.borland.com/InsuranceWebExtJS/index.jsf    chrome
+    Input Text    login-form:email    john.smith@gmail.com
+    Input Password    login-form:password    john
+    Click Button    login-form:login
+    Select From List By Value    id=quick-link:jump-menu    quote_auto.jsf
+    Input Text    id=autoquote:zipcode    90352
+    Input Text    id=autoquote:e-mail    john.smith@gmail.com
+    Select Radio Button    autoquote:vehicle    car
+    sleep    5s
+    Click button    id=autoquote:next
+    Input Text    id=autoquote:age    35
+    Select Radio Button    autoquote:gender    Male
+    Select Radio Button    autoquote:type    Fair
+    sleep    5s
+    Click button    id=autoquote:next
+    Input Text    id=autoquote:year    2018
+    Sleep    5s
+    Click Element    //img[@id="ext-gen4"]
+    Sleep    5s
+    Click Element    //*[@id="ext-gen8"]/div[4]
+    Sleep    5s
+    Click Element    //img[@id="ext-gen6"]
+    Sleep    5s
+    Click Element    //*[@id="ext-gen12"]/div[3]
+    Click Element    //input[@id="autoquote:finInfo:0"]
+    Click Element    //input[@name="autoquote:next"]
+    Sleep    5s
+    Click Element    class=x-combo-list-item x-combo-selected[2]
